@@ -28,7 +28,7 @@ export const connectToDatabase = async () => {
   cached.promise =
     cached.promise ||
     mongoose.connect(mongodbUrl, {
-      dbName: "Cluster0",
+      dbName: "tutorial-imaginify",
       bufferCommands: false,
     });
 
