@@ -10,6 +10,7 @@ export async function POST(req: Request) {
   console.log("🚀 ~ POST ~ req:", req);
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+  console.log("🚀 ~ POST ~ WEBHOOK_SECRET:", WEBHOOK_SECRET);
 
   if (!WEBHOOK_SECRET) {
     throw new Error(
@@ -33,6 +34,7 @@ export async function POST(req: Request) {
   // Get the body
   const payload = await req.json();
   const body = JSON.stringify(payload);
+  console.log("🚀 ~ POST ~ body:", body);
 
   // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET);
@@ -55,7 +57,7 @@ export async function POST(req: Request) {
 
   // Get the ID and type
   const { id } = evt.data;
-  console.log('🚀 ~ POST ~ evt.data:', evt.data)
+  console.log("🚀 ~ POST ~ evt.data:", evt.data);
   const eventType = evt.type;
   console.log("🚀 ~ POST ~ eventType:", eventType);
 
