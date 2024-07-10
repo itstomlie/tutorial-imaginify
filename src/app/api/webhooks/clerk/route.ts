@@ -55,7 +55,9 @@ export async function POST(req: Request) {
 
   // Get the ID and type
   const { id } = evt.data;
+  console.log('🚀 ~ POST ~ evt.data:', evt.data)
   const eventType = evt.type;
+  console.log("🚀 ~ POST ~ eventType:", eventType);
 
   // CREATE
   if (eventType === "user.created") {
@@ -84,6 +86,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ message: "OK", user: newUser });
   }
+  console.log("🚀 ~ POST ~ evt.data:", evt.data);
 
   // UPDATE
   if (eventType === "user.updated") {
